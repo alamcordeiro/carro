@@ -25,7 +25,7 @@ window.onload = function()
 	{
 	 mod = 0;
 	 var xhReq = new XMLHttpRequest();
-	 xhReq.open("GET", "http://localhost/carro/busca_movimentos.php?id="+ id, false);
+	 xhReq.open("GET", "http://199.168.139.21/carro/busca_movimentos.php?id="+ id, false);
  	 xhReq.send(null);
  	 var serverResponse = xhReq.responseText;
 	 json = JSON.parse(serverResponse);

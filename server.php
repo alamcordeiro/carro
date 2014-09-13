@@ -31,7 +31,7 @@ try {
   $server = new SOAPServer(
     NULL,
     array(
-     'uri' => 'http://localhost/carro/server.php'
+     'uri' => 'http://199.168.139.21/carro/server.php'
     )
   );
 
