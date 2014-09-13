@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Sentido</title>
+	<script type="text/javascript">
+			function movimento(tipo){
+				var xhReq = new XMLHttpRequest();
+ 				xhReq.open("GET", "http://199.168.139.21/carro/movimento.php?movimento=" + tipo, false);
+ 				xhReq.send(null);
+			}
+	</script>
+</head>
+<body>
+	<button style="width: 100%;height:50%" onclick="javascript:movimento(1)">Frente</button>
+	<button style="width: 100%;height:50%" onclick="javascript:movimento(2)">Tr&aacute;s</button>
+</body>
+<html>
