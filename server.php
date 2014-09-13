@@ -15,14 +15,15 @@ class Carro {
 
 
   	public function getMovimentos($id){
-  		$sql = $this->pdo->query('SELECT * FROM movimento WHERE id > '. (int) $id);
-    		$movimentos = Array();
-    		foreach ($this->pdo->query($sql) as $row) {
-    			$movimentos[] = $row;
-    		}
-    	return $movimentos;
+  		  $sql = $this->pdo->prepare('SELECT * FROM movimento
+                                   WHERE
+                                      id > '. (int) $id. ' AND 
+                                      time BETWEEN timestamp(DATE_SUB(NOW(), INTERVAL 5 MINUTE)) AND timestamp(NOW())
+                                    LIMIT 100');
+        $sql->execute();
+    		$movimentos = $sql->fetchAll();
+    	  return $movimentos;
   	}
-
 
 }
 
@@ -30,7 +31,7 @@ try {
   $server = new SOAPServer(
     NULL,
     array(
-     'uri' => 'http://199.168.139.21/carro/server.php'
+     'uri' => 'http://localhost/carro/server.php'
     )
   );
 
