@@ -20,12 +20,12 @@ window.onload = function()
 		draw();
 	}, 30);
 
-
+	/* INÍCIO: Implementação para Aplicação Carro Online */
 	var load = setInterval(function()
 	{
 	 mod = 0;
 	 var xhReq = new XMLHttpRequest();
-	 xhReq.open("GET", "http://199.168.139.21/carro/busca_movimentos.php?id="+ id, false);
+	 xhReq.open("GET", "http://localhost/carro/servidor/busca_movimentos.php?id="+ id, false);
  	 xhReq.send(null);
  	 var serverResponse = xhReq.responseText;
 	 json = JSON.parse(serverResponse);
@@ -42,6 +42,7 @@ window.onload = function()
 	   
 
  	}, 2000);
+ 	/* FIM */
 
 
 };
